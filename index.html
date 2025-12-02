@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urgent Complaint Keywords - Zeal College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a4f8b, #3a7cbd);
+            color: #2d3e50;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header {
+            background: linear-gradient(to right, #1a4f8b, #2a5f9e);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: #f5f7fa;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card h2 {
+            color: #1a4f8b;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3a7cbd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2 i {
+            color: #ff6b35;
+        }
+        
+        .keyword-list {
+            list-style: none;
+        }
+        
+        .keyword-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        
+        .keyword-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .priority-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .urgent {
+            background: #ff6b35;
+        }
+        
+        .normal {
+            background: #3a7cbd;
+        }
+        
+        .suggestion {
+            background: #28a745;
+        }
+        
+        .keyword-text {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .examples {
+            margin-top: 30px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            grid-column: 1 / -1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .examples h2 {
+            color: #1a4f8b;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3a7cbd;
+        }
+        
+        .example-card {
+            background: #f5f7fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff6b35;
+        }
+        
+        .example-card h3 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .example-text {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            border-left: 3px solid #3a7cbd;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f0f4f8;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            background: #fff5f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #ff6b35;
+            font-weight: 600;
+        }
+        
+        .note {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #3a7cbd;
+        }
+        
+        .note h3 {
+            color: #1a4f8b;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-exclamation-triangle"></i> Urgent Complaint Keywords</h1>
+            <p>Zeal College Chatbot automatically categorizes complaints based on keywords. Urgent complaints receive immediate attention.</p>
+        </div>
+        
+        <div class="content">
+            <div class="card">
+                <h2><i class="fas fa-fire"></i> Urgent Priority Keywords</h2>
+                <ul class="keyword-list">
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">leak</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">flood</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">broken</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">emergency</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">danger</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">electrical</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">fire</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">accident</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">injured</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">urgent</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">critical</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">immediate</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">unsafe</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator urgent"><i class="fas fa-exclamation"></i></div>
+                        <div class="keyword-text">hazard</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-info-circle"></i> Other Priority Levels</h2>
+                <h3 style="color: #3a7cbd; margin: 20px 0 10px 0;">Normal Priority Keywords</h3>
+                <ul class="keyword-list">
+                    <li class="keyword-item">
+                        <div class="priority-indicator normal"><i class="fas fa-info"></i></div>
+                        <div class="keyword-text">maintenance</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator normal"><i class="fas fa-info"></i></div>
+                        <div class="keyword-text">repair</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator normal"><i class="fas fa-info"></i></div>
+                        <div class="keyword-text">not working</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator normal"><i class="fas fa-info"></i></div>
+                        <div class="keyword-text">issue</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator normal"><i class="fas fa-info"></i></div>
+                        <div class="keyword-text">problem</div>
+                    </li>
+                </ul>
+                
+                <h3 style="color: #28a745; margin: 20px 0 10px 0;">Suggestion Keywords</h3>
+                <ul class="keyword-list">
+                    <li class="keyword-item">
+                        <div class="priority-indicator suggestion"><i class="fas fa-lightbulb"></i></div>
+                        <div class="keyword-text">suggestion</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator suggestion"><i class="fas fa-lightbulb"></i></div>
+                        <div class="keyword-text">improve</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator suggestion"><i class="fas fa-lightbulb"></i></div>
+                        <div class="keyword-text">better</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator suggestion"><i class="fas fa-lightbulb"></i></div>
+                        <div class="keyword-text">recommend</div>
+                    </li>
+                    <li class="keyword-item">
+                        <div class="priority-indicator suggestion"><i class="fas fa-lightbulb"></i></div>
+                        <div class="keyword-text">advice</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="examples">
+                <h2><i class="fas fa-comment-dots"></i> Examples of Urgent Complaints</h2>
+                
+                <div class="example-card">
+                    <h3><i class="fas fa-tint"></i> Water Leak</h3>
+                    <div class="example-text">There's a major water <span class="highlight">leak</span> in the hostel bathroom on the second floor. Water is spreading to the hallway and electrical outlets.</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3><i class="fas fa-bolt"></i> Electrical Hazard</h3>
+                    <div class="example-text">There's an <span class="highlight">electrical</span> panel in the science building that's sparking and smoking. This seems <span class="highlight">danger</span>ous and could start a <span class="highlight">fire</span>.</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3><i class="fas fa-user-injured"></i> Safety Incident</h3>
+                    <div class="example-text">A student just had an <span class="highlight">accident</span> in the chemistry lab and appears to be <span class="highlight">injured</span>. This is an <span class="highlight">emergency</span> situation requiring <span class="highlight">immediate</span> attention.</div>
+                </div>
+                
+                <div class="example-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> Structural Issue</h3>
+                    <div class="example-text">A large section of the ceiling in the library has collapsed. The situation is <span class="highlight">critical</span> and <span class="highlight">unsafe</span> for students studying nearby.</div>
+                </div>
+                
+                <div class="note">
+                    <h3><i class="fas fa-lightbulb"></i> How the System Works</h3>
+                    <p>The Zeal College chatbot uses AI to scan your complaint description for keywords. If any urgent keywords are detected, your complaint is automatically flagged as high priority and sent to the facilities team for immediate action.</p>
+                    <p>For the fastest response, include specific details about the nature and location of the problem in your complaint.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Zeal College of Engineering & Research | Complaint Management System</p>
+            <p>© 2023 Zeal College. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for keyword items
+        document.addEventListener('DOMContentLoaded', function() {
+            const keywordItems = document.querySelectorAll('.keyword-item');
+            
+            keywordItems.forEach((item, index) => {
+                // Add slight delay for staggered animation
+                item.style.animationDelay = `${index * 0.05}s`;
+                item.classList.add('animate-in');
+            });
+            
+            // Add animation for example cards
+            const exampleCards = document.querySelectorAll('.example-card');
+            
+            exampleCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate-in');
+            });
+        });
+    </script>
+    
+    <style>
+        /* Animation for elements */
+        .keyword-item, .example-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Hover effect for keyword items */
+        .keyword-item:hover .priority-indicator {
+            transform: scale(1.1);
+        }
+        
+        .priority-indicator {
+            transition: transform 0.2s ease;
+        }
+    </style>
+</body>
+</html>
